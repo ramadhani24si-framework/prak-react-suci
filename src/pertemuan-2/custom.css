@@ -1,0 +1,97 @@
+/* --- 1. IMPORT FONT LUCU & BULAT --- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    /* Background pastel yang lembut banget */
+    background-color: #fff5f8;
+    background-image: radial-gradient(#ffdeeb 2px, transparent 2px);
+    background-size: 30px 30px; /* Efek bintik-bintik lucu */
+    color: #5d5d5d;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- 2. THE CUTE CARD --- */
+.card {
+    max-width: 400px;
+    width: 90%;
+    background: #ffffff;
+    padding: 40px;
+    /* Sudut sangat bulat biar kelihatan "empuk" */
+    border-radius: 40px; 
+    /* Shadow lembut seperti awan */
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+    border: 6px solid #ffdeeb;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* Efek goyang lucu saat di-hover */
+.card:hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 0 30px 50px rgba(255, 182, 193, 0.5);
+    border-color: #ffd1dc;
+}
+
+/* --- 3. TYPOGRAPHY --- */
+h1 {
+    color: #ff85a1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    /* Efek teks sedikit melengkung (visually) */
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #7a7a7a;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* --- 4. DECORATION --- */
+hr {
+    border: none;
+    height: 8px;
+    width: 50px;
+    background: #c3f0ca; /* Warna Mint */
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+small {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f0e6ff; /* Soft Lavender */
+    color: #b983b9;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* Tambahan hiasan kecil biar makin gemoy */
+.card::before {
+    content: "✨";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 2rem;
+}
+
+.card::after {
+    content: "🌸";
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 2rem;
+}
