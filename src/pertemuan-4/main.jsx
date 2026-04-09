@@ -6,6 +6,7 @@ import TailwinddCSS from "./TailwindCSS";
 // import HitungGajiForm from "./HitungGajiForm";
 import FrameworkList from "./FrameworkList";
 import FrameworkListSearchFilter from "./FrameworkListSearchFilter";
+import ResponsiveText from "./ResponsiveDesign";
 
 createRoot(document.getElementById("root"))
     .render(
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root"))
              {/* <UserForm/>  
              <HitungGajiForm/>  */}
              {/* <FrameworkList/> */}
-             <FrameworkListSearchFilter/>
+             {/* <FrameworkListSearchFilter/> */}
+             <ResponsiveText/>
         </div>
     )
