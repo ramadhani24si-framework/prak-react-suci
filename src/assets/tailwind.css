@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+
+  --color-latar: #f3f4f6;
+  --color-teks: #374151;
+  --color-teks-samping: #6b7280;
+  --color-garis: #e5e7eb;
+  --color-hijau: #00b074;
+  --color-merah: #ef4444;
+  --color-biru: #3b82f6;
+  --color-kuning: #f59e0b;
+}
+
+@layer base {
+  body {
+    @apply font-barlow bg-latar text-teks m-0 p-0 antialiased;
+  }
+  /* Improvisasi: Semua elemen interaktif punya transisi halus */
+  button, a, .menu-item, .stat-card {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
