@@ -1,12 +1,13 @@
 import { FaBell, FaSearch } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
+import fotoProfil from "../img/Foto-suci.jpeg"; // Pastikan path & nama file ini benar
 
 export default function Header() {
   return (
     <div id="header-container" className="flex justify-between items-center p-6 bg-transparent transition-all duration-300">
       
-      {/* Search Bar - Sekarang lebih clean pake shadow, bukan border kaku */}
+      {/* Search Bar */}
       <div id="search-bar" className="relative w-full max-w-md group">
         <input
           id="search-input"
@@ -23,7 +24,7 @@ export default function Header() {
       {/* Icon & Profile Section */}
       <div id="icons-container" className="flex items-center space-x-6">
         
-        {/* Grup Icon - Sekarang pake background putih & soft shadow */}
+        {/* Grup Icon */}
         <div className="flex items-center space-x-3">
           <div id="notification-icon" className="relative p-3 bg-white shadow-sm rounded-xl text-blue-500 cursor-pointer hover:bg-blue-50 hover:-translate-y-1 transition-all">
             <FaBell />
@@ -41,18 +42,18 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Profile Section - Udah pake foto lo sendiri */}
+        {/* Profile Section */}
         <div id="profile-container" className="flex items-center space-x-4 border-l pl-6 border-gray-200">
           <div id="profile-text" className="text-right hidden sm:block">
             <p className="text-xs text-gray-400">Hello,</p>
             <p className="text-sm font-bold text-gray-800">Suci Ramadhani</p>
           </div>
           
-          {/* Bingkai foto profil pake warna hijau biar sinkron */}
-          <div className="p-0.5 bg-hijau rounded-full shadow-md shadow-hijau/20">
+          {/* Bingkai foto profil */}
+          <div className="p-0.5 bg-green-500 rounded-full shadow-md shadow-green-500/20">
             <img
               id="profile-avatar"
-              src="/img/Foto-suci.jpeg" // Manggil file lo dari folder public/img
+              src={fotoProfil} // PERBAIKAN: Memanggil variabel import, bukan string path manual
               className="w-11 h-11 rounded-full border-2 border-white object-cover"
               alt="Foto Suci Ramadhani"
             />

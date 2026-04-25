@@ -1,62 +1,91 @@
-import { FaPlus, FaHome, FaClipboardList, FaUsers } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { FaPlus, FaTachometerAlt, FaShoppingBag, FaUsers, FaChartLine, FaCog, FaExclamationTriangle } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+
+
 export default function Sidebar() {
-  const menus = [
-    { name: "Dashboard", icon: <FaHome />, active: true, to: "/" },
-    { name: "Orders", icon: <FaClipboardList />, active: false, to: "/Orders" },
-    { name: "Customers", icon: <FaUsers />, active: false, to: "/Customers" },
+ 
+  const menuItems = [
+    { name: "Dashboard", icon: <FaTachometerAlt />, to: "/" },
+    { name: "Orders", icon: <FaShoppingBag />, to: "/Orders" },
+    { name: "Customers", icon: <FaUsers />, to: "/Customers" },
+
+
+    // 🔥 ERROR MENU (DITAMBAHKAN)
+    { name: "Error 400", icon: <FaExclamationTriangle />, to: "/error-400" },
+    { name: "Error 401", icon: <FaExclamationTriangle />, to: "/error-401" },
+    { name: "Error 403", icon: <FaExclamationTriangle />, to: "/error-403" },
+
+
+    // { name: "Analytics", icon: <FaChartLine />, to: "#" },
+    // { name: "Settings", icon: <FaCog />, to: "#" },
   ];
-      const menuClass = ({ isActive }) =>
-        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
-        ${isActive ? 
-            "text-hijau bg-green-200 font-extrabold" : 
-            "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
-        }`
-  //  flex cursor-pointer items-center space-x-4 rounded-xl p-4 font-semibold transition-all group
-  //               ${menu.active ? "bg-hijau/10 text-hijau" : "text-gray-500 hover:bg-gray-50 hover:text-hijau"}`
+
+
+  const menuClass = ({ isActive }) =>
+    `flex cursor-pointer items-center rounded-xl p-4 space-x-2
+    ${isActive ?
+      "text-hijau bg-green-200 font-extrabold" :
+      "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+    }`;
+
+
   return (
-    <div id="sidebar" className="flex min-h-screen w-80 flex-col bg-white p-8 shadow-xl">
-      <div id="sidebar-logo" className="flex flex-col mb-12">
-        <span id="logo-title" className="font-poppins text-4xl font-bold text-gray-900">
-          Sedap<b className="text-hijau">.</b>
+    <div className="flex min-h-screen w-80 flex-col bg-white/90 backdrop-blur-md shadow-2xl rounded-r-3xl border-r border-white/30">
+
+
+      {/* Logo */}
+      <div className="flex flex-col p-6 border-b border-gray-100">
+        <span className="font-poppins text-[48px] text-gray-800 tracking-tight">
+          Sedap <b className="text-hijau">.</b>
         </span>
-        <span className="text-sm font-medium text-gray-400">Modern Admin Dashboard</span>
+        <span className="font-semibold text-gray-400 text-sm">
+          Modern Admin Dashboard
+        </span>
       </div>
 
-      <nav id="sidebar-menu" className="flex-1">
+
+      {/* Menu */}
+      <div className="mt-6 px-4">
+        <p className="text-xs font-bold text-gray-400 uppercase mb-4">Main Menu</p>
+
+
         <ul className="space-y-2">
-          {menus.map((menu, i) => (
-            <li key={i}>
-              {/* TAMBAHKAN to={menu.to} DI SINI */}
-              <NavLink
-                to={menu.to}
-                className={menuClass}
-              >
-                <span className="text-xl">{menu.icon}</span>
-                <span className="group-hover:translate-x-1 transition-transform">{menu.name}</span>
-              </NavLink>
-            </li>
+          {menuItems.map((item, idx) => (
+            <NavLink key={idx} to={item.to} className={menuClass}>
+              <span className="text-lg">{item.icon}</span>
+              <span>{item.name}</span>
+            </NavLink>
           ))}
         </ul>
-      </nav>
+      </div>
 
-      <div id="sidebar-footer" className="mt-auto">
-        <div className="bg-hijau p-5 rounded-2xl shadow-lg shadow-hijau/30 mb-6 relative overflow-hidden group">
-          <div className="relative z-10">
-            <p className="text-white text-xs leading-relaxed opacity-90">Please organize your menus through button below!</p>
-            <button className="flex w-full justify-center items-center p-2.5 mt-4 bg-white rounded-xl space-x-2 font-bold text-gray-800 hover:scale-105 active:scale-95 transition-transform">
-              <FaPlus className="text-hijau text-sm" />
-              <span>Add Menus</span>
-            </button>
+
+      {/* Footer tetap */}
+      <div className="mt-auto p-4">
+        <div className="bg-gradient-to-br from-hijau to-green-600 px-4 py-4 rounded-2xl mb-6">
+          <div className="text-white text-sm space-y-3">
+            <span>Organize your menus through button below!</span>
+            <div className="flex justify-between items-center p-2 bg-white/20 rounded-xl cursor-pointer">
+              <div className="flex items-center space-x-2 text-white">
+                <FaPlus />
+                <span>Add Menus</span>
+              </div>
+              <img
+                src="https://avatar.iran.liara.run/public/28"
+                className="w-8 h-8 rounded-full"
+              />
+            </div>
           </div>
-          {/* Hiasan lingkaran di background card */}
-          <div className="absolute -right-4 -bottom-4 w-16 h-16 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
         </div>
-        <div className="text-center">
-          <span className="font-bold text-gray-400 text-sm">Sedap Restaurant</span>
-          <p className="text-[10px] text-gray-400 mt-1">&copy; 2025 All Right Reserved</p>
+
+
+        <div className="text-center text-sm text-gray-400">
+          &copy; 2025 Sedap Dashboard
         </div>
       </div>
+
+
     </div>
   );
 }
+
