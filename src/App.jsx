@@ -1,49 +1,48 @@
-import { useState } from "react";
-import reactLogo from "./assets/vite.svg";
-import viteLogo from "/vite.svg";
-import "./assets/tailwind.css";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import NotFound from "./pages/NotFound";
-import Error400 from "./pages/Error400";
-import Error401 from "./pages/Error401.jsx";
-import Error403 from "./pages/Error403";
+import Loading from "./components/Loading";
 
+// Lazy Load Layouts
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
 
+// Lazy Load Pages
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Orders = React.lazy(() => import("./pages/Orders"));
+const Customers = React.lazy(() => import("./pages/Customers"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const Login = React.lazy(() => import("./pages/auth/Login"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 
+// Error Pages
+const Error400 = React.lazy(() => import("./pages/Error400"));
+const Error401 = React.lazy(() => import("./pages/Error401"));
+const Error403 = React.lazy(() => import("./pages/Error403"));
 
 function App() {
-  const [count, setCount] = useState(0);
-
-
   return (
-    <div className="bg-gray-100 min-h-screen flex">
-      <Sidebar />
-
-
-      <div className="flex-1 p-4">
-        <Header />
-        <Routes>
-           <Route path="*" element={<NotFound />} />
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        {/* GROUP MAIN (DENGAN SIDEBAR) */}
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/error-400" element={<Error400 />} />
           <Route path="/error-401" element={<Error401 />} />
           <Route path="/error-403" element={<Error403 />} />
-        </Routes>
-      </div>
-    </div>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
+        {/* GROUP AUTH (TANPA SIDEBAR) */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot" element={<Forgot />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
-
-
 export default App;
-
-
-
-
