@@ -15,6 +15,10 @@ const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 
+// 🔥 HALAMAN BARU PERTEMUAN 9
+const Produk = React.lazy(() => import("./pages/Produk"));
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
+
 // Error Pages
 const Error400 = React.lazy(() => import("./pages/Error400"));
 const Error401 = React.lazy(() => import("./pages/Error401"));
@@ -29,6 +33,11 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          
+          {/* 🔥 ROUTE BARU PERTEMUAN 9 */}
+          <Route path="/produk" element={<Produk />} />
+          <Route path="/produk/:id" element={<ProductDetail />} />
+
           <Route path="/error-400" element={<Error400 />} />
           <Route path="/error-401" element={<Error401 />} />
           <Route path="/error-403" element={<Error403 />} />
@@ -45,4 +54,5 @@ function App() {
     </Suspense>
   );
 }
+
 export default App;
