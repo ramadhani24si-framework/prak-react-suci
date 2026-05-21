@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import PageHeader from "../components/PageHeader";
 import { FaUtensils, FaShoppingBag, FaUsers, FaWallet } from "react-icons/fa";
 
@@ -17,9 +18,9 @@ export default function Dashboard() {
         title="Dashboard Overview"
         breadcrumb={["Dashboard", "Overview"]}
       >
-        <button className="bg-hijau hover:bg-green-700 text-white px-6 py-2.5 rounded-xl font-bold shadow-lg shadow-green-100 transition-all active:scale-95">
+        <Button type="success">
           + Download Report
-        </button>
+        </Button>
       </PageHeader>
 
       {/* STATS CARDS */}

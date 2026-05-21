@@ -30,7 +30,6 @@ export default function PageHeader(props) {
         </div>
       </div>
 
-
       {/* RIGHT */}
       <div>
         {props.children}

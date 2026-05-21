@@ -15,12 +15,9 @@ export default function Orders() {
         title="Orders"
         breadcrumb={["Dashboard", "Orders"]}
       >
-        <button
-          onClick={() => setShowForm(!showForm)}
-          className="bg-hijau text-white px-4 py-2 rounded-xl shadow hover:scale-105 transition"
-        >
+        <Button type="success">
           + Add Order
-        </button>
+        </Button>
       </PageHeader>
 
 

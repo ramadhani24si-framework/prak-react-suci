@@ -40,7 +40,7 @@ export default function ProductDetail() {
   return (
     <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[50px] shadow-2xl mt-10 border border-gray-100">
       {/* Tombol Back */}
-      <button 
+      <button
         onClick={() => navigate(-1)} 
         className="mb-8 text-gray-400 hover:text-hijau font-bold flex items-center gap-2 transition-all hover:-translate-x-2"
       >

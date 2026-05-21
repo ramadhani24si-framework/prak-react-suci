@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loading from "./components/Loading";
+import Components from "./pages/Components";
 
 // Lazy Load Layouts
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
@@ -14,6 +15,7 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+
 
 // 🔥 HALAMAN BARU PERTEMUAN 9
 const Produk = React.lazy(() => import("./pages/Produk"));
@@ -33,7 +35,8 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
-          
+          <Route path="/components" element={<Components />} />
+
           {/* 🔥 ROUTE BARU PERTEMUAN 9 */}
           <Route path="/produk" element={<Produk />} />
           <Route path="/produk/:id" element={<ProductDetail />} />
