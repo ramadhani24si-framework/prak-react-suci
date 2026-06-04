@@ -11,7 +11,7 @@ export default function Sidebar() {
     // 🔥 MENU BARU PERTEMUAN 9
     { name: "Produk", icon: <FaShoppingBag />, to: "/produk" },
     { name: "Components", icon: <FaShoppingBag />, to: "/components" },
-
+    {name: "Fitur XYZ", icon: <FaShoppingBag />, to: "/FiturXYZ"},
     // ERROR MENU
     { name: "Error 400", icon: <FaExclamationTriangle />, to: "/error-400" },
     { name: "Error 401", icon: <FaExclamationTriangle />, to: "/error-401" },

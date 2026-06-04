@@ -15,8 +15,7 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
-
-
+const FiturXYZ = React.lazy(() => import("./pages/FiturXYZ"));
 // 🔥 HALAMAN BARU PERTEMUAN 9
 const Produk = React.lazy(() => import("./pages/Produk"));
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
@@ -36,7 +35,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/components" element={<Components />} />
-
+          <Route path="/FiturXYZ" element={<FiturXYZ />} />
           {/* 🔥 ROUTE BARU PERTEMUAN 9 */}
           <Route path="/produk" element={<Produk />} />
           <Route path="/produk/:id" element={<ProductDetail />} />
